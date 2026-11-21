@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadishe Fernando | Computer Science Portfolio</title>
+<meta name="description" content="Portfolio of Sadishe Fernando, Computer Science student at the University of Dundee.">
+<style>
+:root{--cream:#f6f3ea;--paper:#fffdf7;--ink:#0d0d0d;--muted:#5f5b52;--line:#e2ddcf;--lime:#d4ff3a;--lime2:#b8e600;
+--dark:#111110;--mono:"JetBrains Mono",Consolas,Menlo,monospace;--green:#22c55e;--red:#ef4444;--acc:#0d0d0d;--acc2:#5f7d00;--amber:#f59e0b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+a{color:inherit}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--lime2);outline-offset:2px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:99}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+
+/* nav */
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,243,234,.85);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.sc{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-weight:900;font-size:1.35rem;text-decoration:none;letter-spacing:-.5px}
+.logo span{display:inline-block;width:10px;height:10px;background:var(--lime);border:2px solid var(--ink);border-radius:50%;margin-left:3px}
+.links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;padding:8px 14px;border-radius:999px}
+.links a:hover{background:#ebe6d8}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.92rem;border:2px solid var(--ink);transition:transform .15s}
+.pill:hover{transform:translateY(-2px)}
+.pill.lime{background:var(--lime);color:var(--ink)}
+.pill.ghost{background:transparent;color:var(--ink)}
+.menu-btn{display:none;background:none;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:600}
+
+/* hero */
+.hero{padding:70px 0 60px}
+.hgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:500}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+h1{font-size:clamp(2.8rem,6.2vw,5.2rem);line-height:.98;letter-spacing:-2.5px;margin:22px 0 22px;font-weight:900}
+h1 mark{background:var(--lime);padding:0 .12em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:540px;margin:0 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.term{background:var(--dark);color:#e7e5dd;border-radius:20px;box-shadow:12px 12px 0 var(--ink);border:2px solid var(--ink);overflow:hidden;font-family:var(--mono);font-size:.86rem}
+.tbar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#1d1d1b;border-bottom:1px solid #2c2c29}
+.tbar i{width:11px;height:11px;border-radius:50%}.tbar i:nth-child(1){background:#ff5f57}.tbar i:nth-child(2){background:#febc2e}.tbar i:nth-child(3){background:#28c840}
+.tbar span{margin-left:10px;color:#8a877d;font-size:.78rem}
+.tout{height:300px;overflow-y:auto;padding:16px 18px 4px;line-height:1.7}
+.tout .c{color:var(--lime)}.tout .d{color:#8a877d}.tout .h{color:#fff;font-weight:700}
+.tin{display:flex;align-items:center;gap:8px;padding:8px 18px 16px}
+.tin label{color:var(--lime)}
+.tin input{flex:1;background:transparent;border:0;color:#fff;font:inherit;outline:none;caret-color:var(--lime)}
+.hints{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 16px}
+.hints button{font:inherit;font-size:.74rem;background:#232320;color:#cfccc2;border:1px solid #34342f;border-radius:6px;padding:3px 9px;cursor:pointer}
+.hints button:hover{border-color:var(--lime);color:var(--lime)}
+
+/* marquee */
+.marq{background:var(--ink);color:var(--cream);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-1.2deg);margin:20px -20px 0}
+.mtrack{display:flex;gap:40px;padding:16px 0;width:max-content;animation:mq 30s linear infinite;font-weight:800;font-size:1.3rem;letter-spacing:-.3px}
+.mtrack span{display:flex;align-items:center;gap:40px;white-space:nowrap}
+.mtrack span::after{content:"✦";color:var(--lime)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:100px 0;scroll-margin-top:70px}
+.kicker{font-family:var(--mono);font-size:.85rem;font-weight:500;display:inline-flex;gap:8px;align-items:center;margin-bottom:14px}
+.kicker b{background:var(--ink);color:var(--lime);padding:2px 8px;border-radius:6px}
+h2{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.05;letter-spacing:-1.5px;margin:0 0 18px;font-weight:900}
+.sub{color:var(--muted);font-size:1.08rem;max-width:620px;margin:0 0 50px}
+
+/* about */
+.agrid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:start}
+.big{font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.4;font-weight:600;letter-spacing:-.4px;margin:0 0 18px}
+.big u{text-decoration:none;background:linear-gradient(transparent 62%,var(--lime) 62%)}
+.agrid p{color:var(--muted)}
+.facts{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:8px 22px;box-shadow:8px 8px 0 var(--ink)}
+.fact{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border:0}.fact span{color:var(--muted);font-size:.92rem}.fact b{text-align:right}
+.ints{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.ints span{border:2px solid var(--ink);border-radius:999px;padding:5px 14px;font-weight:600;font-size:.88rem;background:var(--paper)}
+.ints span:nth-child(odd){background:var(--lime)}
+
+/* features */
+#work{background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:56px 0;border-top:1px dashed var(--line)}
+.feature:first-of-type{border-top:0;padding-top:10px}
+.feature.flip .ftext{order:2}
+.fnum{font-family:var(--mono);font-size:.9rem;font-weight:700}
+.fnum span{display:inline-block;background:var(--lime);border:2px solid var(--ink);border-radius:8px;padding:1px 9px;margin-right:8px}
+.feature h3{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.05;letter-spacing:-1px;margin:14px 0 6px}
+.fmeta{color:var(--muted);font-family:var(--mono);font-size:.85rem;margin:0 0 16px}
+.feature p.fdesc{color:#2f2d28;margin:0 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.tags span{font-family:var(--mono);font-size:.76rem;border:1.5px solid var(--ink);border-radius:7px;padding:3px 9px;background:var(--cream)}
+details{border:2px solid var(--ink);border-radius:14px;background:var(--cream);overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details[open] summary{border-bottom:1.5px solid var(--ink);background:var(--lime)}
+.dgrid{padding:6px 16px 14px}
+.dgrid h4{margin:10px 0 4px;font-size:.76rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.dgrid ul{margin:0;padding-left:18px;font-size:.92rem}.dgrid li{margin-bottom:4px}
+.fvis{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:20px;box-shadow:10px 10px 0 var(--ink)}
+.fvis .vt{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:0 0 12px}
+.agents{display:grid;gap:12px}
+.agent{display:flex;gap:14px;align-items:center;background:var(--paper);border:1.5px solid var(--ink);border-radius:14px;padding:14px 16px}
+.agent .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-family:var(--mono);font-weight:800;border:1.5px solid var(--ink)}
+.agent strong{display:block}.agent p{margin:0;color:var(--muted);font-size:.9rem}
+.cards{display:flex;gap:10px;margin-bottom:16px}
+.card{width:56px;height:78px;border-radius:8px;background:#fff;border:1.5px solid var(--ink);font-family:var(--mono);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transform:rotate(var(--r));box-shadow:3px 3px 0 var(--ink)}
+.card.r{color:#c8102e}
+
+/* skills bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.box{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:22px}
+.box h3{margin:0 0 12px;font-size:1.05rem}
+.b-code{grid-column:span 4;grid-row:span 2;padding:0;overflow:hidden;background:#0f172a}
+.b-code .codeview{border-radius:0;box-shadow:none;height:100%}
+.b-lang{grid-column:span 2;background:var(--lime)}
+.b-tools{grid-column:span 2}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips span{border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;font-size:.85rem;font-weight:600;background:var(--paper)}
+.b-lang .chips span{background:#fff}
+.b-soft{grid-column:span 2}
+.b-soft .ico{font-size:1.5rem;display:block;margin-bottom:8px}
+.b-soft p{margin:0;color:var(--muted);font-size:.93rem}
+.b-soft h3{margin-bottom:6px}
+
+/* journey */
+.jgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.jbox{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:26px}
+.jbox .when{font-family:var(--mono);font-size:.82rem;background:var(--ink);color:var(--lime);display:inline-block;padding:2px 9px;border-radius:6px}
+.jbox h3{font-size:1.35rem;margin:12px 0 4px;letter-spacing:-.4px}
+.jbox .org{font-weight:600;margin:0 0 8px}.jbox p{color:var(--muted);margin:0}
+
+/* cta */
+.cta{background:var(--ink);color:var(--cream);border-radius:30px;padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:var(--lime);right:-120px;top:-140px;opacity:.95}
+.cta h2{color:#fff;position:relative}
+.cta h2 span{color:var(--lime)}
+.cta p{color:#c9c5b9;position:relative}
+.cta .btns{position:relative;margin-top:24px}
+.cta .pill{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.cta .pill.ghost{background:transparent;color:#fff;border-color:#fff}
+.cvframe{position:relative;width:100%;height:520px;border:2px solid var(--lime);border-radius:18px;background:#fff}
+.adv{position:relative;margin-top:26px;padding-top:20px;border-top:1px solid #34342f;font-size:.92rem}
+.adv a{color:var(--lime)}
+
+/* contact */
+#contact{padding-bottom:40px}
+.huge{font-size:clamp(3rem,10vw,8.5rem);font-weight:900;letter-spacing:-4px;line-height:.9;margin:0 0 30px}
+.huge span{-webkit-text-stroke:2px var(--ink);color:transparent}
+.clinks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.clink{display:flex;justify-content:space-between;align-items:center;gap:12px;border:2px solid var(--ink);border-radius:18px;padding:20px 22px;text-decoration:none;background:var(--paper);transition:background .2s,transform .2s}
+.clink:hover{background:var(--lime);transform:translateY(-3px)}
+.clink small{display:block;color:var(--muted);font-family:var(--mono);font-size:.78rem;word-break:break-all}
+.clink b{font-size:1.15rem}
+.clink .arr{font-size:1.6rem}
+footer{border-top:2px solid var(--ink);margin-top:70px;padding:24px 0;font-size:.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:980px){
+  .hgrid,.agrid,.feature,.cta,.jgrid{grid-template-columns:1fr}
+  .feature.flip .ftext{order:0}
+  .bento{grid-template-columns:1fr 1fr}.b-code{grid-column:span 2}.b-lang,.b-tools,.b-soft{grid-column:span 1}
+  .clinks{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .links{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--cream);padding:10px 20px 16px;border-bottom:2px solid var(--ink)}
+  .links.open{display:flex}.menu-btn{display:block}.nav .pill{display:none}
+  .bento{grid-template-columns:1fr}.b-code,.b-lang,.b-tools,.b-soft{grid-column:span 1}
+  .codeview{grid-template-columns:1fr}.files{display:flex;overflow-x:auto}.files p{display:none}
+  .cta{padding:30px 22px}section{padding:70px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+/* demo (IoT) */
+.demo{background:#0f172a;border-radius:16px;padding:18px;color:#e2e8f0}
+.demo-title{font-family:var(--mono);font-size:.78rem;color:#94a3b8;margin:0 0 12px;display:flex;justify-content:space-between}
+.demo-title b{color:#4ade80;font-weight:500}
+.boards{display:grid;grid-template-columns:1.25fr .9fr;gap:12px}
+.board{background:#0d3b2e;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:9px 9px;border:1px solid #1d6b52;border-radius:10px;padding:12px}
+.board .lbl{font-family:var(--mono);font-size:.66rem;color:#7fd9b5;margin-bottom:8px;display:block}
+.screen{background:#9bbc8b;color:#14200f;font-family:var(--mono);border-radius:5px;padding:8px 10px;margin-bottom:10px;box-shadow:inset 0 0 8px rgba(0,0,0,.35)}
+.screen .q{font-size:1.1rem;font-weight:700}.screen .a{font-size:.9rem;min-height:1.3em}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.key{font-family:var(--mono);font-size:1rem;font-weight:700;padding:8px 0;border-radius:6px;border:1px solid #2b2b2b;background:linear-gradient(#3a3f47,#23272d);color:#f1f1f1;cursor:pointer;box-shadow:0 3px 0 #111}
+.key:active,.key.pressed{transform:translateY(2px);box-shadow:0 1px 0 #111}.key.fn{color:#fbbf24}
+.out{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.led{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#5d6672,#22272e);border:3px solid #1a1d22;transition:background .2s,box-shadow .2s}
+.led.green{background:radial-gradient(circle at 35% 30%,#b8ffd5,var(--green));box-shadow:0 0 30px var(--green)}
+.led.red{background:radial-gradient(circle at 35% 30%,#ffc2c8,var(--red));box-shadow:0 0 30px var(--red)}
+.score{font-family:var(--mono);font-size:.76rem;color:#94a3b8}
+.wire{position:relative;height:2px;background:#1d6b52;margin:8px 0;overflow:hidden}
+.packet{position:absolute;top:-3px;left:-12px;width:10px;height:8px;border-radius:2px;background:#fbbf24;box-shadow:0 0 8px #fbbf24}
+.packet.go{animation:send .45s linear forwards}@keyframes send{to{left:100%}}
+.log{font-family:var(--mono);font-size:.72rem;color:#7fd9b5;background:#020617;border-radius:8px;padding:8px 10px;height:72px;overflow:hidden}
+.log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-hint{font-size:.78rem;color:#94a3b8;margin:10px 0 0}
+
+/* nova */
+.nova{padding:0}
+.nova .demo-title{color:var(--muted)}.nova .demo-title b{color:var(--acc2)}
+.nstat{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.ngrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:10px 0}
+.cell{aspect-ratio:1;border-radius:9px;border:1px solid var(--line);background:#f1f5f9;cursor:pointer;font-family:var(--mono);font-weight:700;color:var(--ink)}
+.cell:hover:not(:disabled){background:#e0e7ff}
+.cell.miss{background:#f8fafc;color:#cbd5e1;cursor:default}
+.cell.hit{background:linear-gradient(135deg,#14b8a6,#6366f1);color:#fff;cursor:default}
+.nmsg{font-family:var(--mono);font-size:.82rem;color:var(--acc);min-height:1.4em;margin:0}
+.nova .btn{padding:7px 14px;font-size:.85rem;border:1px solid var(--line);background:#fff;color:var(--ink)}
+
+.codeview{display:grid;grid-template-columns:200px 1fr;background:#0f172a;border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(15,23,42,.18)}
+.files{background:#1e293b;padding:12px 0}
+.files p{font-family:var(--mono);font-size:.7rem;color:#64748b;margin:4px 16px 10px;letter-spacing:1px}
+.file{display:block;width:100%;text-align:left;background:none;border:0;color:#94a3b8;font-family:var(--mono);font-size:.8rem;padding:9px 16px;cursor:pointer;border-left:2px solid transparent}
+.file small{display:block;font-size:.68rem;opacity:.7}
+.file[aria-selected="true"]{color:#fff;background:rgba(99,102,241,.18);border-left-color:#818cf8}
+.code-area{min-width:0}
+.code-head{font-family:var(--mono);font-size:.76rem;color:#94a3b8;padding:10px 18px;border-bottom:1px solid #1e293b;display:flex;justify-content:space-between;gap:10px}
+pre{margin:0;padding:16px 18px;overflow-x:auto;font-size:.82rem;line-height:1.7;color:#e2e8f0;min-height:270px}
+code{font-family:var(--mono)}.ck{color:#93c5fd}.cs{color:#86efac}.cc{color:#64748b;font-style:italic}.cn{color:#fcd34d}.cf{color:#c4b5fd}
+
+.fvis .demo{border:0}
+.nova .demo-title{color:var(--muted)}.nova .demo-title b{color:var(--acc2)}
+.cell{background:var(--paper);border:1.5px solid var(--ink)}
+.cell:hover:not(:disabled){background:#f1ffc2}
+.cell.miss{background:#ebe6d8;color:#a8a294;border-color:#cfc8b7}
+.cell.hit{background:var(--lime);color:var(--ink)}
+.nmsg{color:var(--ink)}
+.fvis .nova{max-width:400px;margin:0 auto}
+.nova .btn{border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font-weight:600;padding:7px 16px;cursor:pointer}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#home">sadishe<span></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home" style="padding-top:60px">
+  <div class="wrap hgrid">
+    <div class="reveal">
+      <span class="badge"><i></i>Computer Science Student · University of Dundee</span>
+      <h1>Hi, I'm Sadishe. I <mark>build</mark> things with code.</h1>
+      <p class="lead">A second-year Computer Science student turning ideas into working software, from Java games and AI agents to websites and networked IoT devices.</p>
+      <div class="btns"><a class="pill lime" href="#work">See my work →</a><a class="pill ghost" href="#about">About me</a></div>
+    </div>
+    <div class="term reveal" aria-label="Interactive terminal. Type a command such as help, about, projects, skills or contact.">
+      <div class="tbar"><i></i><i></i><i></i><span>sadishe@portfolio: ~</span></div>
+      <div class="tout" id="tout" aria-live="polite"></div>
+      <div class="tin"><label for="tin">$</label><input id="tin" type="text" autocomplete="off" spellcheck="false" placeholder="type a command…"></div>
+      <div class="hints"><button>about</button><button>projects</button><button>skills</button><button>contact</button><button>clear</button></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="mtrack"><span>Java</span><span>Python</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span><span>Git</span><span>GitHub</span><span>Linux</span><span>MQTT</span><span>Raspberry Pi Pico W</span><span>Machine Learning</span><span>OOP</span><span>Flask</span><span>Java</span><span>Python</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span><span>Git</span><span>GitHub</span><span>Linux</span><span>MQTT</span><span>Raspberry Pi Pico W</span><span>Machine Learning</span><span>OOP</span><span>Flask</span></div></div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker reveal"><b>01</b> about</div>
+    <div class="agrid">
+      <div class="reveal">
+        <p class="big">I'm studying for a <u>BSc in Computer Science</u> at the University of Dundee, and I learn best by <u>building real projects</u>.</p>
+        <p>My modules have given me a strong base in programming (Java, Python, C and C++), data structures and algorithms, software engineering and artificial intelligence, and I achieved a 2:1 in my first year.</p>
+        <p>I love turning an idea into something that actually works, whether that's a game, an AI agent that makes decisions, or devices talking to each other over a network. Next on my list is quantum computing.</p>
+        <div class="ints"><span>Software engineering</span><span>Data science</span><span>AI</span><span>Web development</span><span>Quantum computing</span><span>Cricket</span></div>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><span>Studying</span><b>BSc Computer Science</b></div>
+        <div class="fact"><span>University</span><b>University of Dundee</b></div>
+        <div class="fact"><span>Year 1 result</span><b>2:1</b></div>
+        <div class="fact"><span>Graduating</span><b>2029</b></div>
+        <div class="fact"><span>Based in</span><b>Edinburgh, UK</b></div>
+        <div class="fact"><span>Also</span><b>Social Media Secretary, DUCC</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="kicker reveal"><b>02</b> selected work</div>
+    <h2 class="reveal">Projects I've built.</h2>
+    <p class="sub reveal">Three university projects across IoT, object-oriented programming and AI. Two of them you can try right here.</p>
+    
+  <div class="feature">
+    <div class="ftext reveal">
+      <div class="fnum"><span>01</span>Embedded Systems · Team of 4 · 2025</div>
+      <h3>IoT Networked Maths Quiz</h3>
+      <p class="fdesc">A quiz game spread across two networked Raspberry Pi Pico W microcontrollers. Users answer maths questions on a physical keypad; the first Pico checks the answer and sends the result over MQTT, and the second Pico lights an RGB LED green or red.</p>
+      <div class="tags"><span>MicroPython</span><span>Raspberry Pi Pico W</span><span>MQTT</span><span>GPIO</span><span>PWM</span><span>Flask</span><span>HTML/CSS</span></div>
+      <details><summary>My role, challenges &amp; skills</summary>
+        <div class="dgrid"><h4>My role</h4><ul><li>Programmed the input Pico: scanning the 4×3 keypad matrix and checking answers.</li><li>Programmed the output Pico: receiving results over MQTT and driving the RGB LED with PWM.</li><li>Built the HTML/CSS website and co-wrote the project report.</li></ul><h4>Challenges</h4><ul><li>Wi-Fi and MQTT connections sometimes dropped, so I added retry and automatic reconnection logic.</li><li>Reading a keypad matrix reliably, using a polling delay so one press isn't counted many times.</li></ul><h4>Skills developed</h4><ul><li>Hardware interfacing (GPIO, PWM)</li><li>Publish/subscribe messaging</li><li>Designing for reliability</li><li>Team integration</li></ul></div>
+      </details>
+    </div>
+    <div class="fvis reveal"><p class="vt">▶ try it: answer on the keypad (or type on your keyboard)</p><div class="demo" aria-label="Interactive demo of the IoT quiz">
+          <p class="demo-title"><span>// try it: live simulation</span><b id="mqttState">● mqtt connected</b></p>
+          <div class="boards">
+            <div class="board">
+              <span class="lbl">PICO W #1 · INPUT</span>
+              <div class="screen" aria-live="polite"><div class="q" id="question">7 + 5 = ?</div><div class="a" id="answer">_</div></div>
+              <div class="keypad" id="keypad">
+                <button class="key">1</button><button class="key">2</button><button class="key">3</button>
+                <button class="key">4</button><button class="key">5</button><button class="key">6</button>
+                <button class="key">7</button><button class="key">8</button><button class="key">9</button>
+                <button class="key fn" aria-label="Delete">*</button><button class="key">0</button><button class="key fn" aria-label="Submit">#</button>
+              </div>
+            </div>
+            <div class="board out">
+              <span class="lbl" style="align-self:flex-start">PICO W #2 · OUTPUT</span>
+              <div class="led" id="led" role="img" aria-label="RGB LED, off"></div>
+              <div class="score" id="score">score 0 / 0</div>
+            </div>
+          </div>
+          <div class="wire" aria-hidden="true"><span class="packet" id="packet"></span></div>
+          <div class="log" id="log" aria-hidden="true"><div>&gt; wifi connected</div><div>&gt; mqtt connected · topic pico/quiz/rgb</div></div>
+          <p class="demo-hint">Type the answer on the keypad (or your keyboard). <strong>*</strong> deletes and <strong>#</strong> submits.</p>
+</div></div>
+  </div>
+  <div class="feature flip">
+    <div class="ftext reveal">
+      <div class="fnum"><span>02</span>Software Development · Solo · Dec 2025</div>
+      <h3>Project Nova</h3>
+      <p class="fdesc">A two-player, turn-based strategy game with a Swing GUI. Players search a hidden grid for creatures: +5 for a hit, +10 for a whole creature, and the game announces a winner once all are found. Games can be saved and loaded.</p>
+      <div class="tags"><span>Java</span><span>Swing</span><span>OOP</span><span>Serialisation</span></div>
+      <details><summary>My role, challenges &amp; skills</summary>
+        <div class="dgrid"><h4>My role</h4><ul><li>Designed and built the whole game myself.</li><li>Split the code into Game, Board, Player and Creature classes, plus GUI and file-handling classes.</li><li>Built the menus, help screen, game grid and live scores.</li></ul><h4>Challenges</h4><ul><li>Placing creatures randomly without overlapping or leaving the grid: I wrote a check that each shape fits first.</li><li>Saving the whole game state: solved with Java serialisation and clear error messages.</li></ul><h4>Skills developed</h4><ul><li>Object-oriented design</li><li>Event-driven GUIs</li><li>File I/O & error handling</li><li>Working independently</li></ul></div>
+      </details>
+    </div>
+    <div class="fvis reveal"><p class="vt">▶ play it: find the hidden creatures</p><div class="nova" aria-label="Mini playable version of Project Nova">
+          <p class="demo-title"><span>// try it: find the hidden creatures</span><b>mini version</b></p>
+          <div class="nstat"><span id="nScore">score 0</span><span id="nLeft">creatures left 3</span><span id="nShots">guesses 0</span></div>
+          <div class="ngrid" id="ngrid"></div>
+          <p class="nmsg" id="nmsg" aria-live="polite">Click a square to search it.</p>
+          <button class="btn" id="nReset">New game</button>
+</div></div>
+  </div>
+  <div class="feature">
+    <div class="ftext reveal">
+      <div class="fnum"><span>03</span>Intro to AI & ML · Team of 4 · Oct 2026</div>
+      <h3>Blackjack AI Simulation</h3>
+      <p class="fdesc">A Python Blackjack simulation used to compare three AI approaches: a card-counting strategy, a machine-learning agent trained on a player expected-value dataset, and a search-based agent. We ran experiments to see which performed best.</p>
+      <div class="tags"><span>Python</span><span>Machine learning</span><span>Search</span><span>Git/GitHub</span><span>Claude</span></div>
+      <details><summary>My role, challenges &amp; skills</summary>
+        <div class="dgrid"><h4>My role</h4><ul><li>Contributed code to the game simulation and all three AI agents.</li><li>Helped run the experiments and testing comparing agent performance.</li></ul><h4>Challenges</h4><ul><li>Coordinating four people on one codebase with Git and GitHub.</li><li>Using an AI coding assistant responsibly: checking and understanding generated code.</li></ul><h4>Skills developed</h4><ul><li>ML & search fundamentals</li><li>Running experiments</li><li>Version control in a team</li><li>AI-assisted development</li></ul></div>
+      </details>
+    </div>
+    <div class="fvis reveal"><p class="vt">the three agents we compared</p><div class="cards" aria-hidden="true"><div class="card" style="--r:-6deg">A♠</div><div class="card r" style="--r:3deg">K♥</div><div class="card r" style="--r:-2deg">7♦</div><div class="card" style="--r:5deg">10♣</div></div>
+<div class="agents">
+<div class="agent"><div class="ic" style="background:#d4ff3a">+1</div><div><strong>Card-counting agent</strong><p>Tracks the cards already played to estimate what's left.</p></div></div>
+<div class="agent"><div class="ic" style="background:#fff">ML</div><div><strong>Machine-learning agent</strong><p>Learns decisions from a player expected-value dataset.</p></div></div>
+<div class="agent"><div class="ic" style="background:#0d0d0d;color:#d4ff3a">S</div><div><strong>Search-based agent</strong><p>Explores possible moves to choose the best action.</p></div></div>
+</div></div>
+  </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="kicker reveal"><b>03</b> skills</div>
+    <h2 class="reveal">What I work with.</h2>
+    <p class="sub reveal">Technical skills backed by real code from my projects, and the transferable skills I bring to a team.</p>
+    <div class="bento">
+      <div class="box b-code reveal"><div class="codeview">
+      <div class="files" role="tablist" aria-label="Code samples">
+        <p>EXPLORER</p>
+        <button class="file" role="tab" aria-selected="true" data-code="c1">keypad.py<small>IoT quiz · input Pico</small></button>
+        <button class="file" role="tab" aria-selected="false" data-code="c2" tabindex="-1">mqtt_send.py<small>IoT quiz · input Pico</small></button>
+        <button class="file" role="tab" aria-selected="false" data-code="c3" tabindex="-1">led.py<small>IoT quiz · output Pico</small></button>
+        <button class="file" role="tab" aria-selected="false" data-code="c4" tabindex="-1">Board.java<small>Project Nova · class outline</small></button>
+      </div>
+      <div class="code-area">
+        <div class="code-head"><span id="codeName">keypad.py</span><span id="codeNote">Scans a 4×3 keypad matrix row by row</span></div>
+<pre id="c1" role="tabpanel"><code><span class="cc"># Drive each row high, then check which column reads high</span>
+<span class="ck">def</span> <span class="cf">scan_keypad</span>():
+    <span class="ck">for</span> r, row <span class="ck">in</span> enumerate(rows):
+        row.value(<span class="cn">1</span>)
+        <span class="ck">for</span> c, col <span class="ck">in</span> enumerate(cols):
+            <span class="ck">if</span> col.value():
+                row.value(<span class="cn">0</span>)
+                <span class="ck">return</span> KEYS[r][c]
+        row.value(<span class="cn">0</span>)
+    <span class="ck">return</span> <span class="cn">None</span></code></pre>
+<pre id="c2" role="tabpanel" hidden><code><span class="cc"># Publish the result; reconnect if the link has dropped</span>
+<span class="ck">def</span> <span class="cf">send_feedback</span>(correct):
+    <span class="ck">global</span> mqtt_client
+    msg = <span class="cs">b"GREEN"</span> <span class="ck">if</span> correct <span class="ck">else</span> <span class="cs">b"RED"</span>
+    <span class="ck">try</span>:
+        mqtt_client.publish(MQTT_TOPIC, msg)
+    <span class="ck">except</span> OSError:
+        mqtt_client = mqtt_connect()
+        mqtt_client.publish(MQTT_TOPIC, msg)</code></pre>
+<pre id="c3" role="tabpanel" hidden><code>red   = PWM(Pin(<span class="cn">15</span>))
+green = PWM(Pin(<span class="cn">14</span>))
+blue  = PWM(Pin(<span class="cn">13</span>))
+
+<span class="ck">def</span> <span class="cf">set_color</span>(msg):
+    <span class="ck">if</span> msg == <span class="cs">b"GREEN"</span>:
+        red.duty_u16(<span class="cn">0</span>); green.duty_u16(<span class="cn">65535</span>)
+    <span class="ck">elif</span> msg == <span class="cs">b"RED"</span>:
+        red.duty_u16(<span class="cn">65535</span>); green.duty_u16(<span class="cn">0</span>)
+    <span class="ck">else</span>:
+        red.duty_u16(<span class="cn">0</span>); green.duty_u16(<span class="cn">0</span>)</code></pre>
+<pre id="c4" role="tabpanel" hidden><code><span class="ck">public class</span> <span class="cf">Board</span> <span class="ck">implements</span> Serializable {
+    <span class="ck">private int</span> rows, columns;
+    <span class="ck">private char</span>[][] grid;
+    <span class="ck">private boolean</span>[][] revealed;
+    <span class="ck">private</span> List&lt;Creature&gt; creature;
+
+    <span class="ck">public void</span> <span class="cf">placeCreaturesRandomly</span>() { ... }
+    <span class="ck">private boolean</span> <span class="cf">canPlaceShape</span>(<span class="ck">int</span>[][] s, <span class="ck">int</span> r, <span class="ck">int</span> c) { ... }
+    <span class="ck">public int</span> <span class="cf">guess</span>(<span class="ck">int</span> r, <span class="ck">int</span> c) { ... }
+    <span class="ck">public boolean</span> <span class="cf">allCreaturesFound</span>() { ... }
+}</code></pre>
+      </div>
+    </div></div>
+      <div class="box b-lang reveal"><h3>Languages</h3><div class="chips"><span>Java</span><span>Python</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span><span>MicroPython</span></div></div>
+      <div class="box b-tools reveal"><h3>Tools &amp; concepts</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Linux CLI</span><span>VS Code</span><span>Flask</span><span>Claude</span><span>OOP</span><span>Algorithms</span><span>UML</span><span>ML</span><span>MQTT</span></div></div>
+      <div class="box b-soft reveal"><span class="ico">🤝</span><h3>Teamwork</h3><p>Worked in teams of four on the IoT quiz and Blackjack projects, dividing tasks and integrating everyone's code.</p></div>
+      <div class="box b-soft reveal"><span class="ico">💬</span><h3>Communication</h3><p>Plan and write posts as Social Media Secretary, and co-wrote technical project reports.</p></div>
+      <div class="box b-soft reveal"><span class="ico">🧩</span><h3>Problem-solving</h3><p>Added retry and reconnection logic so the IoT devices recovered from network failures on their own.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="journey" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker reveal"><b>04</b> education &amp; activities</div>
+    <div class="jgrid">
+      <div class="jbox reveal"><span class="when">2025 → 2029</span><h3>BSc (Hons) Computer Science</h3><p class="org">University of Dundee · 2:1 in Year 1</p><p>Java, Python, C/C++, data structures &amp; algorithms, software engineering, operating systems, AI &amp; machine learning and web development.</p></div>
+      <div class="jbox reveal"><span class="when">2025 → now</span><h3>Social Media Secretary &amp; Player</h3><p class="org">Dundee University Cricket Club</p><p>Elected committee member creating content that promotes matches and events, and a player in the men's team.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kicker reveal"><b>05</b> contact</div>
+    <p class="huge reveal">Let's <span>talk.</span></p>
+    <div class="clinks">
+      <a class="clink reveal" href="mailto:sadeeshafederico263@gmail.com"><div><b>Email</b><small>sadeeshafederico263@gmail.com</small></div><span class="arr">↗</span></a>
+      <a class="clink reveal" href="https://github.com/fede263" target="_blank" rel="noopener"><div><b>GitHub</b><small>github.com/fede263</small></div><span class="arr">↗</span></a>
+      <a class="clink reveal" href="https://www.linkedin.com/in/sadishe-fernando-2a2678402/" target="_blank" rel="noopener"><div><b>LinkedIn</b><small>sadishe-fernando</small></div><span class="arr">↗</span></a>
+    </div>
+    <footer><span>© 2026 Sadishe Fernando</span><span class="mono">built with HTML, CSS &amp; JavaScript</span></footer>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var top=document.getElementById('top');
+  window.addEventListener('scroll',function(){top.classList.toggle('sc',window.scrollY>10);},{passive:true});
+  var mb=document.querySelector('.menu-btn'), links=document.getElementById('links');
+  mb.addEventListener('click',function(){var o=links.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
+  links.addEventListener('click',function(e){if(e.target.closest('a')){links.classList.remove('open');mb.setAttribute('aria-expanded','false');}});
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduce){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1});els.forEach(function(el){io.observe(el);});}
+  else els.forEach(function(el){el.classList.add('in');});
+  
+  var out=document.getElementById('tout'), inp=document.getElementById('tin');
+  var C={
+    help:'<span class="h">Available commands</span>\n  <span class="c">about</span>     who I am\n  <span class="c">projects</span>  things I\'ve built\n  <span class="c">skills</span>    languages &amp; tools\n  <span class="c">contact</span>   get in touch\n  <span class="c">clear</span>     clear the screen',
+    about:'Sadishe Fernando: 2nd-year BSc Computer Science student at the\nUniversity of Dundee. 2:1 in Year 1. Based in Edinburgh.\nInterests: software eng, data science, AI, web, quantum computing.',
+    whoami:'sadishe',
+    projects:'<span class="h">01</span> IoT Networked Maths Quiz   <span class="d">MicroPython · Pico W · MQTT</span>\n<span class="h">02</span> Project Nova (solo)        <span class="d">Java · Swing · OOP</span>\n<span class="h">03</span> Blackjack AI Simulation    <span class="d">Python · ML · search</span>\n<span class="d">→ scrolling you to the projects...</span>',
+    skills:'languages: Java, Python, C, C++, HTML, CSS, MicroPython\ntools:     Git, GitHub, Linux CLI, VS Code, Flask, Claude\nconcepts:  OOP, data structures, algorithms, OS, UML, ML',
+    contact:'email:    sadeeshafederico263@gmail.com\ngithub:   github.com/fede263\nlinkedin: linkedin.com/in/sadishe-fernando',
+    quantum:'|0⟩ + |1⟩ … still learning this one. Ask me again next year! ⚛',
+    sudo:'nice try 😄'
+  };
+  function print(html){var d=document.createElement('div');d.innerHTML=html.replace(/\n/g,'<br>');out.appendChild(d);out.scrollTop=out.scrollHeight;}
+  function run(cmd){
+    cmd=(cmd||'').trim().toLowerCase(); if(!cmd)return;
+    print('<span class="c">sadishe@portfolio:~$</span> '+cmd.replace(/</g,'&lt;'));
+    if(cmd==='clear'){out.innerHTML='';return;}
+    if(C[cmd]!==undefined){print(C[cmd]);}
+    else print('command not found: '+cmd.replace(/</g,'&lt;')+' <span class="d">(try "help")</span>');
+    if(cmd==='projects') setTimeout(function(){document.getElementById('work').scrollIntoView({behavior:reduce?'auto':'smooth'});},700);
+    if(cmd==='contact') {}
+  }
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){run(inp.value);inp.value='';}});
+  document.querySelectorAll('.hints button').forEach(function(b){b.addEventListener('click',function(){run(b.textContent);inp.focus({preventScroll:true});});});
+  print('<span class="d">Welcome! Type a command or tap one below.</span>');
+  run('help');
+
+  /* code viewer */
+  var notes={c1:"Scans a 4×3 keypad matrix row by row",c2:"Publishes over MQTT with automatic reconnect",c3:"Drives an RGB LED using PWM duty cycles",c4:"Object-oriented structure of the game board"};
+  var files=[].slice.call(document.querySelectorAll('.file'));
+  files.forEach(function(f,i){
+    function pick(){ files.forEach(function(x){var on=x===f; x.setAttribute('aria-selected',on); x.tabIndex=on?0:-1; document.getElementById(x.dataset.code).hidden=!on;});
+      document.getElementById('codeName').textContent=f.childNodes[0].textContent; document.getElementById('codeNote').textContent=notes[f.dataset.code]; }
+    f.addEventListener('click',pick);
+    f.addEventListener('keydown',function(e){var j=null; if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%files.length; if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+files.length)%files.length; if(j!==null){e.preventDefault(); files[j].click(); files[j].focus();}});
+  });
+
+  /* ---------- IoT quiz demo ---------- */
+  var qEl=document.getElementById('question'), aEl=document.getElementById('answer'), led=document.getElementById('led'),
+      logEl=document.getElementById('log'), packet=document.getElementById('packet'), scoreEl=document.getElementById('score');
+  var correct=0, total=0, input="", ans=0, busy=false;
+  function log(t){ var d=document.createElement('div'); d.textContent='> '+t; logEl.appendChild(d); while(logEl.children.length>4) logEl.removeChild(logEl.firstChild); }
+  function newQ(){
+    var ops=['+','-','*'], op=ops[Math.floor(Math.random()*3)], a,b;
+    if(op==='*'){a=2+Math.floor(Math.random()*8); b=2+Math.floor(Math.random()*8);}
+    else {a=5+Math.floor(Math.random()*40); b=1+Math.floor(Math.random()*20); if(op==='-'&&b>=a){var t=a;a=b+1;b=t;}}
+    ans = op==='+'?a+b : op==='-'?a-b : a*b;
+    qEl.textContent=a+' '+(op==='*'?'×':op)+' '+b+' = ?'; input=""; aEl.textContent='_';
+  }
+  function press(k){
+    if(busy) return;
+    if(k==='*'){ input=input.slice(0,-1); }
+    else if(k==='#'){
+      if(!input) return;
+      busy=true; total++;
+      var ok=parseInt(input,10)===ans; if(ok) correct++;
+      log('submitted '+input+' → '+(ok?'correct':'wrong'));
+      log('publish pico/quiz/rgb '+(ok?'GREEN':'RED'));
+      packet.classList.remove('go'); void packet.offsetWidth; packet.classList.add('go');
+      setTimeout(function(){
+        led.className='led '+(ok?'green':'red'); led.setAttribute('aria-label','RGB LED, '+(ok?'green: correct':'red: incorrect'));
+        log('pico#2 received '+(ok?'GREEN':'RED'));
+        scoreEl.textContent='score '+correct+' / '+total;
+        setTimeout(function(){ led.className='led'; led.setAttribute('aria-label','RGB LED, off'); newQ(); busy=false; }, 1300);
+      }, reduce?0:450);
+      return;
+    }
+    else if(input.length<4){ input+=k; }
+    aEl.textContent=input||'_';
+  }
+  document.getElementById('keypad').addEventListener('click',function(e){ var b=e.target.closest('.key'); if(b) press(b.textContent.trim()); });
+  var demoBox=document.querySelector('.demo');
+  document.addEventListener('keydown',function(e){
+    var r=demoBox.getBoundingClientRect(); if(r.bottom<0||r.top>window.innerHeight) return;
+    if(e.target.closest('input,textarea')) return;
+    var k=e.key; if(k==='Enter')k='#'; if(k==='Backspace')k='*';
+    if(/^[0-9*#]$/.test(k)){ var btns=[].slice.call(document.querySelectorAll('.key')); var b=btns.find(function(x){return x.textContent.trim()===k;});
+      if(b){b.classList.add('pressed'); setTimeout(function(){b.classList.remove('pressed');},120);} press(k); if(k==='#'||k==='*') e.preventDefault(); }
+  });
+  newQ();
+
+  /* ---------- Nova mini game ---------- */
+  var R=6,C=6, grid=document.getElementById('ngrid'), cells=[], creatures=[], board=[], nScore=0, nShots=0;
+  var SHAPES=[[[0,0],[0,1],[0,2]],[[0,0],[1,0],[1,1]],[[0,0],[1,0]]];
+  function canPlace(sh,r,c){ return sh.every(function(p){var y=r+p[0],x=c+p[1]; return y>=0&&y<R&&x>=0&&x<C&&board[y][x]===-1;}); }
+  function newGame(){
+    board=[]; for(var r=0;r<R;r++){board.push([]);for(var c=0;c<C;c++)board[r].push(-1);}
+    creatures=[]; SHAPES.forEach(function(sh,id){ var placed=false; while(!placed){ var r=Math.floor(Math.random()*R), c=Math.floor(Math.random()*C);
+      if(canPlace(sh,r,c)){ var cellsOf=sh.map(function(p){board[r+p[0]][c+p[1]]=id; return [r+p[0],c+p[1]];}); creatures.push({cells:cellsOf,found:0}); placed=true; } } });
+    nScore=0; nShots=0; grid.innerHTML=''; cells=[];
+    for(r=0;r<R;r++)for(c=0;c<C;c++){ var b=document.createElement('button'); b.className='cell'; b.dataset.r=r; b.dataset.c=c;
+      b.setAttribute('aria-label','Square row '+(r+1)+' column '+(c+1)); grid.appendChild(b); cells.push(b); }
+    upd(); document.getElementById('nmsg').textContent='Click a square to search it.';
+  }
+  function left(){ return creatures.filter(function(x){return x.found<x.cells.length;}).length; }
+  function upd(){ document.getElementById('nScore').textContent='score '+nScore; document.getElementById('nLeft').textContent='creatures left '+left(); document.getElementById('nShots').textContent='guesses '+nShots; }
+  grid.addEventListener('click',function(e){
+    var b=e.target.closest('.cell'); if(!b||b.disabled||!left()) return;
+    var r=+b.dataset.r,c=+b.dataset.c, id=board[r][c], msg=document.getElementById('nmsg'); nShots++; b.disabled=true;
+    if(id===-1){ b.classList.add('miss'); b.textContent='·'; b.setAttribute('aria-label','Empty square'); msg.textContent='Miss: nothing here.'; }
+    else { b.classList.add('hit'); b.textContent='✦'; b.setAttribute('aria-label','Creature found'); nScore+=5; var cr=creatures[id]; cr.found++;
+      if(cr.found===cr.cells.length){ nScore+=10; msg.textContent='Creature completed! +10 points'; } else msg.textContent='Hit! +5 points'; }
+    upd();
+    if(!left()){ msg.textContent='All creatures found in '+nShots+' guesses! Final score: '+nScore; }
+  });
+  document.getElementById('nReset').addEventListener('click',newGame);
+  newGame();
+
+})();
+</script>
+</body>
+</html>
