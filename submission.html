@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadishe Fernando | CS21001 Portfolio Submission</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--cream:#f6f3ea;--paper:#fffdf7;--ink:#0d0d0d;--muted:#5f5b52;--line:#e2ddcf;--lime:#d4ff3a;--mono:"JetBrains Mono",Consolas,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+a:focus-visible{outline:3px solid #b8e600;outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:48px 24px 60px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.82rem;background:var(--ink);color:var(--lime);padding:3px 10px;border-radius:6px}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-1.5px;margin:14px 0 8px;font-weight:900}
+.intro{color:var(--muted);margin:0 0 36px;max-width:640px}
+.item{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:26px;margin-bottom:22px;box-shadow:8px 8px 0 var(--ink)}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.num{flex:none;width:40px;height:40px;border-radius:12px;background:var(--lime);border:2px solid var(--ink);display:grid;place-items:center;font-weight:900;font-family:var(--mono)}
+h2{margin:0;font-size:1.35rem;letter-spacing:-.4px}
+.item p{color:var(--muted);margin:6px 0 16px}
+.url{font-family:var(--mono);font-size:.9rem;word-break:break-all}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.93rem;padding:10px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff}
+.pill.ghost{background:transparent;color:var(--ink)}
+.pill:hover{transform:translateY(-2px)}
+iframe{width:100%;height:560px;border:2px solid var(--ink);border-radius:14px;background:#fff;margin-top:18px}
+footer{color:var(--muted);font-size:.88rem;margin-top:30px}
+@media (max-width:600px){iframe{height:420px}.item{padding:20px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <span class="tag">CS21001 · Portfolio (MAB01)</span>
+  <h1>Sadishe Fernando: Portfolio Submission</h1>
+  <p class="intro">BSc Computer Science, University of Dundee. This page links to everything required for the assessment: my online portfolio, my two-page CV and a saved copy of the job advert my CV is tailored to.</p>
+
+  <section class="item">
+    <div class="head"><span class="num">1</span><h2>Online portfolio</h2></div>
+    <p>My portfolio website with my introduction, projects, technical and transferable skills, CV and professional profiles.</p>
+    <p class="url"><a href="https://fede263.github.io/">https://fede263.github.io/</a></p>
+    <div class="btns"><a class="pill" href="https://fede263.github.io/">Open portfolio →</a></div>
+  </section>
+
+  <section class="item">
+    <div class="head"><span class="num">2</span><h2>Two-page CV (PDF)</h2></div>
+    <p>My CV, tailored to the job advert below.</p>
+    <div class="btns">
+      <a class="pill" href="Sadishe_Fernando_CV.pdf" target="_blank" rel="noopener">Open CV</a>
+      <a class="pill ghost" href="Sadishe_Fernando_CV.pdf" download>Download CV ↓</a>
+    </div>
+    <iframe src="Sadishe_Fernando_CV.pdf" title="CV of Sadishe Fernando (PDF)" loading="lazy"></iframe>
+  </section>
+
+  <section class="item">
+    <div class="head"><span class="num">3</span><h2>Job advert (PDF copy)</h2></div>
+    <p><strong>Summer Placement Software Engineer</strong>, Leonardo UK Ltd, Edinburgh (Job ID R0033869). A saved offline copy in case the original advert is removed.</p>
+    <div class="btns">
+      <a class="pill" href="job-advert.pdf" target="_blank" rel="noopener">Open job advert</a>
+      <a class="pill ghost" href="job-advert.pdf" download>Download advert ↓</a>
+    </div>
+    <iframe src="job-advert.pdf" title="Leonardo Summer Placement Software Engineer job advert (PDF)" loading="lazy"></iframe>
+  </section>
+
+  <footer>© 2026 Sadishe Fernando · <a href="https://fede263.github.io/">Back to portfolio</a></footer>
+</main>
+</body>
+</html>
