@@ -237,8 +237,9 @@ code{font-family:var(--mono)}.ck{color:#93c5fd}.cs{color:#86efac}.cc{color:#6474
     <a class="logo" href="#home">sadishe<span></span></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="links">Menu</button>
     <ul class="links" id="links">
-      <li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#skills">Skills</a></li><li><a href="#cv">CV</a></li><li><a href="#contact">Contact</a></li>
     </ul>
+    <a class="pill" href="Sadishe_Fernando_CV.pdf" download>Download CV ↓</a>
   </div>
 </header>
 
@@ -255,7 +256,7 @@ code{font-family:var(--mono)}.ck{color:#93c5fd}.cs{color:#86efac}.cc{color:#6474
       <div class="tbar"><i></i><i></i><i></i><span>sadishe@portfolio: ~</span></div>
       <div class="tout" id="tout" aria-live="polite"></div>
       <div class="tin"><label for="tin">$</label><input id="tin" type="text" autocomplete="off" spellcheck="false" placeholder="type a command…"></div>
-      <div class="hints"><button>about</button><button>projects</button><button>skills</button><button>contact</button><button>clear</button></div>
+      <div class="hints"><button>about</button><button>projects</button><button>skills</button><button>cv</button><button>contact</button><button>clear</button></div>
     </div>
   </div>
 </section>
@@ -442,9 +443,23 @@ blue  = PWM(Pin(<span class="cn">13</span>))
 
 
 
+<section id="cv" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker reveal"><b>05</b> cv</div>
+    <div class="cta reveal">
+      <div>
+        <h2>Want the full picture? <span>Grab my CV.</span></h2>
+        <p>Two pages covering my education, projects, skills and experience.</p>
+        <div class="btns"><a class="pill" href="Sadishe_Fernando_CV.pdf" download>Download CV ↓</a><a class="pill ghost" href="Sadishe_Fernando_CV.pdf" target="_blank" rel="noopener">Open in new tab</a></div>
+      </div>
+      <iframe class="cvframe" src="Sadishe_Fernando_CV.pdf" title="CV of Sadishe Fernando (PDF preview)" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
 <section id="contact" style="padding-top:20px">
   <div class="wrap">
-    <div class="kicker reveal"><b>05</b> contact</div>
+    <div class="kicker reveal"><b>06</b> contact</div>
     <p class="huge reveal">Let's <span>talk.</span></p>
     <div class="clinks">
       <a class="clink reveal" href="mailto:sadeeshafederico263@gmail.com"><div><b>Email</b><small>sadeeshafederico263@gmail.com</small></div><span class="arr">↗</span></a>
@@ -469,12 +484,13 @@ blue  = PWM(Pin(<span class="cn">13</span>))
   else els.forEach(function(el){el.classList.add('in');});
   
   var out=document.getElementById('tout'), inp=document.getElementById('tin');
-  var C={
-    help:'<span class="h">Available commands</span>\n  <span class="c">about</span>     who I am\n  <span class="c">projects</span>  things I\'ve built\n  <span class="c">skills</span>    languages &amp; tools\n  <span class="c">contact</span>   get in touch\n  <span class="c">clear</span>     clear the screen',
+  var CMDS={
+    help:'<span class="h">Available commands</span>\n  <span class="c">about</span>     who I am\n  <span class="c">projects</span>  things I\'ve built\n  <span class="c">skills</span>    languages &amp; tools\n  <span class="c">cv</span>        open my CV\n  <span class="c">contact</span>   get in touch\n  <span class="c">clear</span>     clear the screen',
     about:'Sadishe Fernando: 2nd-year BSc Computer Science student at the\nUniversity of Dundee. 2:1 in Year 1. Based in Edinburgh.\nInterests: software eng, data science, AI, web, quantum computing.',
     whoami:'sadishe',
     projects:'<span class="h">01</span> IoT Networked Maths Quiz   <span class="d">MicroPython · Pico W · MQTT</span>\n<span class="h">02</span> Project Nova (solo)        <span class="d">Java · Swing · OOP</span>\n<span class="h">03</span> Blackjack AI Simulation    <span class="d">Python · ML · search</span>\n<span class="d">→ scrolling you to the projects...</span>',
     skills:'languages: Java, Python, C, C++, HTML, CSS, MicroPython\ntools:     Git, GitHub, Linux CLI, VS Code, Flask, Claude\nconcepts:  OOP, data structures, algorithms, OS, UML, ML',
+    cv:'<span class="d">→ opening CV...</span>',
     contact:'email:    sadeeshafederico263@gmail.com\ngithub:   github.com/fede263\nlinkedin: linkedin.com/in/sadishe-fernando',
     quantum:'|0⟩ + |1⟩ … still learning this one. Ask me again next year! ⚛',
     sudo:'nice try 😄'
@@ -484,10 +500,10 @@ blue  = PWM(Pin(<span class="cn">13</span>))
     cmd=(cmd||'').trim().toLowerCase(); if(!cmd)return;
     print('<span class="c">sadishe@portfolio:~$</span> '+cmd.replace(/</g,'&lt;'));
     if(cmd==='clear'){out.innerHTML='';return;}
-    if(C[cmd]!==undefined){print(C[cmd]);}
+    if(Object.prototype.hasOwnProperty.call(CMDS,cmd)){print(CMDS[cmd]);}
     else print('command not found: '+cmd.replace(/</g,'&lt;')+' <span class="d">(try "help")</span>');
     if(cmd==='projects') setTimeout(function(){document.getElementById('work').scrollIntoView({behavior:reduce?'auto':'smooth'});},700);
-    if(cmd==='contact') {}
+    if(cmd==='cv') setTimeout(function(){window.open('Sadishe_Fernando_CV.pdf','_blank');},400);
   }
   inp.addEventListener('keydown',function(e){if(e.key==='Enter'){run(inp.value);inp.value='';}});
   document.querySelectorAll('.hints button').forEach(function(b){b.addEventListener('click',function(){run(b.textContent);inp.focus({preventScroll:true});});});
